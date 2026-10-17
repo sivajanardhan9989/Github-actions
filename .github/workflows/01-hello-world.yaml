@@ -1,0 +1,10 @@
+name: hello-world
+on: push
+jobs: # stages
+    my-job:
+        runs-on: ubuntu-latest # agent, ubuntu-latest is github hosted runner
+        steps:
+            - name: my-step1
+              run: echo "hello world"  
+            - name: my-step2
+              run: echo "Im learning github actions"
