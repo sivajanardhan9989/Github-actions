@@ -8,5 +8,10 @@ jobs:
             - name: event triggered data 
               run: |
                 cat "$GITHUB_EVENT_PATH"
-                echo "The action was: $(jq -r '.action' "$GITHUB_EVENT_PATH")"    
+                echo "The action was: $(jq -r '.action' "$GITHUB_EVENT_PATH")"  
+                
+            - name: to-print
+              run:
+                 echo "print statement1"
+              
 
