@@ -26,7 +26,7 @@ jobs:
                 echo "duration=5hours" >> $GITHUB_ENV 
             - name: access another step variables
               run: |
-                    echo "courzse is $course"
+                    echo "course is $course"
 
             - name: application version
               id: version
@@ -37,7 +37,17 @@ jobs:
               env:
                 JOB_CONTEXT: ${{ toJSON(job) }}
               run: echo "$JOB_CONTEXT"
-        
-
+    second-job:
+        runs-on: ubuntu-latest # agent, ubuntu-latest is github hosted run
+        needs: first-job
+        steps:
+            - name:  access another job outputs
+              run: |
+                echo "Image version: ${{ needs.first-job.outputs.version }}"
+    third-job:
+        runs-on: ubuntu-latest 
+        steps:
+            - name: parallell job
+              run: echo "this is parellel job
                 
 
