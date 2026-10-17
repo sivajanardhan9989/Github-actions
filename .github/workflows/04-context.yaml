@@ -8,6 +8,9 @@ env:
 jobs:
     first-job:
         runs-on: ubuntu-latest # agent, ubuntu-latest is github hosted runner 
+        outputs:
+            version: "${{ steps.version.outputs.image-version }}"
+
         steps:
             - name: print env variables
               run: |
@@ -23,7 +26,18 @@ jobs:
                 echo "duration=5hours" >> $GITHUB_ENV 
             - name: access another step variables
               run: |
-                    echo "couse is $course"
+                    echo "courzse is $course"
+
+            - name: application version
+              id: version
+              run: |
+                echo "image-version=1.0.0" >> $GITHUB_OUTPUT
+
+            - name: Dump job context
+              env:
+                JOB_CONTEXT: ${{ toJSON(job) }}
+              run: echo "$JOB_CONTEXT"
+        
 
                 
 
