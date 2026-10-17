@@ -2,7 +2,7 @@ name: pr-trigger
 on:
     pull_request:
         types: [opened, reopened]
-  pull_request:
+ 
 
 jobs:
     my-job: 
