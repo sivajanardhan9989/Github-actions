@@ -1,6 +1,7 @@
 name: pr-trigger 
 on:
-    pull_request
+    pull_request:
+        types: [opened, reopened]
 jobs:
     my-job: 
         runs-on: ubuntu-latest # agent, ubuntu-latest is github hosted runner
