@@ -48,6 +48,6 @@ jobs:
         runs-on: ubuntu-latest 
         steps:
             - name: parallell job
-              run: echo "this is parellel job
+              run: echo "this is parellel job"
                 
 
