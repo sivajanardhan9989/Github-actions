@@ -1,17 +1,21 @@
-name: pr-trigger 
-on:
-    pull_request
-jobs:
-    my-job: 
-        runs-on: ubuntu-latest # agent, ubuntu-latest is github hosted runner
-        steps: 
-            - name: event triggered data 
-              run: |
-                cat "$GITHUB_EVENT_PATH"
-                echo "The action was: $(jq -r '.action' "$GITHUB_EVENT_PATH")"  
-                
-            - name: to-print
-              run:
-                 echo "print statement1"
-              
 
+name: pr-trigger
+
+on:
+  pull_request:
+
+jobs:
+  my-job:
+    runs-on: ubuntu-latest # GitHub-hosted runner
+
+    steps:
+      - name: event-triggered-data
+        run: |
+          cat "$GITHUB_EVENT_PATH"
+          echo "The action was: $(jq -r '.action' "$GITHUB_EVENT_PATH")"
+
+      - name: to-print
+        run: echo "Print statement1"
+
+      - name: feature-branch
+        run: echo "Created feature1 branch"
