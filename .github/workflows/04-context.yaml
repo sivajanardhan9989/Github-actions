@@ -1,0 +1,29 @@
+name: context
+on:
+    push:
+env:
+  project: "roboshop"
+  component: "catalogue"
+  environment: dev
+jobs:
+    first-job:
+        runs-on: ubuntu-latest # agent, ubuntu-latest is github hosted runner 
+        steps:
+            - name: print env variables
+              run: |
+                echo "Project: $project"
+                echo "Component: $component"  
+            - name: dump github-context
+              env:
+                GITHUB_CONTEXT: ${{ toJson(github) }}
+              run: echo "$GITHUB_CONTEXT" 
+            - name: add variables to env 
+              run: |
+                echo "course=github-actions" >> $GITHUB_ENV
+                echo "duration=5hours" >> $GITHUB_ENV 
+            - name: access another step variables
+              run: |
+                    echo "couse is $course"
+
+                
+
