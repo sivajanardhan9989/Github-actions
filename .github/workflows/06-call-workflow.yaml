@@ -1,13 +1,13 @@
-name: call-workflow
-on:
-    push:
-        branches:
-        - 'main'    
+# name: call-workflow
+# on:
+#     push:
+#         branches:
+#         - 'main'    
 
-jobs:
-  feature-pipeline:
-    uses: daws-90s/workflows/.github/workflows/nodejs-eks-feature.yaml@main  # Reference local path if in the same repository
-    with:
-      project: 'roboshop' 
-      component: 'catalogue' 
+# jobs:
+#   feature-pipeline:
+#     uses: ./.github/workflows/nodejs-eks-feature.yml
+#     with:
+#       project: 'roboshop'
+#       component: 'catalogue' 
 
