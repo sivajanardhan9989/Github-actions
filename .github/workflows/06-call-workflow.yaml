@@ -1,13 +1,13 @@
-# name: call-workflow
-# on:
-#     push:
-#         branches:
-#         - 'main'    
+name: call-workflow
+on:
+    push:
+        branches:
+        - 'main'    
 
-# jobs:
-#   feature-pipeline:
-#     uses: ./.github/workflows/nodejs-eks-feature.yml
-#     with:
-#       project: 'roboshop'
-#       component: 'catalogue' 
+jobs:
+  feature-pipeline:
+    uses: sivajanardhan998932/workflows/.github/actions/gm@main
+    with:
+      project: 'roboshop'
+      component: 'catalogue' 
 
