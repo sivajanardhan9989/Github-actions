@@ -7,7 +7,7 @@ jobs:
     steps:
       - name: say-good-morning
         id: good-morning
-        uses: sivajanardhan/workflows/.github/actions/gm@main
+        uses: sivajanardhan9989/workflows/.github/actions/gm@main
         with:
           person: "siva"
       
